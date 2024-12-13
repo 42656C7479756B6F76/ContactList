@@ -14,7 +14,7 @@ public class AddContactModelValidator : AbstractValidator<AddContactModel>
             .NotEmpty()
             .WithMessage("PhoneNumber must be not empty.");
         RuleFor(request => request.PersonId)
-            .Must(x => x >= 0)
+            .Must(x => x > 0)
             .WithMessage("PersonId must be positive.");
     }
 }
