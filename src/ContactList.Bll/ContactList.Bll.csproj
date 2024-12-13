@@ -6,4 +6,8 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+        <ProjectReference Include="..\ContactList.Dal\ContactList.Dal.csproj"/>
+    </ItemGroup>
+
 </Project>
