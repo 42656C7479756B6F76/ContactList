@@ -1,0 +1,24 @@
+﻿
+services:
+  contact_list.api:
+    build:
+      context: .
+      dockerfile: src/ContactList.Api/Dockerfile
+    container_name: contact_list.api
+    ports:
+      - "8080:8080"
+    depends_on:
+      - contact_list.database
+  contact_list.database:
+    image: postgres
+    container_name: contact_list.database
+    environment: 
+      - "POSTGRES_USER=postgres"
+      - "POSTGRES_DB=contact-list"
+      - "POSTGRES_HOST_AUTH_METHOD=trust"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+volumes:
+  db_data:
