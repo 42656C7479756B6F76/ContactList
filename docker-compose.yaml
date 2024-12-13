@@ -9,6 +9,7 @@ services:
       - "8080:8080"
     depends_on:
       - contact_list.database
+    restart: on-failure
   contact_list.database:
     image: postgres
     container_name: contact_list.database
